@@ -706,6 +706,8 @@ class CSVDataBase(with_metaclass(MetaCSVDataBase, DataBase)):
             return False
 
         line = line.rstrip('\n')
+        line = line.lstrip('\n')
+        line = line.lstrip('\ufeff')
         linetokens = line.split(self.separator)
         return self._loadline(linetokens)
 
